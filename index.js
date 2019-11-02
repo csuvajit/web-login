@@ -35,6 +35,7 @@ const verifyLogin = (user, pass) => new Promise(resolve => {
 	const queried = db.collection('web_logins')
 		.where('username', '==', user)
 		.where('password', '==', pass)
+fix		.limit(1)
 		.get();
 
 	queried.then(snapshot => {
@@ -78,7 +79,7 @@ app.get('/dashboard', (req, res) => {
 app.get('/logout', (req, res) => {
 	res.clearCookie('connect.sid');
 	req.session.destroy();
-	res.redirect('/');
+	return res.redirect('/');
 });
 
 app.post('/login', async (req, res) => {
