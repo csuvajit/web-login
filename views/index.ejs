@@ -24,10 +24,10 @@
                 <hr>
                 <form action="/signup" method="post">
                     <input type="text" id="signupusername" onkeyup="fix()" pattern="[A-Za-z0-9-]+"
-                        title="No special characters except '-'." class="form-control" maxlength="36"
-                        placeholder="Username" name="username">
+                        title="No special characters except '-'" class="form-control" minlength="4"
+                        maxlength="36" placeholder="Username" name="username" required>
                     <br>
-                    <input type="password" class="form-control" placeholder="Password" name="password">
+                    <input type="password" class="form-control" placeholder="Password" name="password" required>
                     <br>
                     <button type="submit" class="btn">Sign Up</button>
                 </form>
@@ -35,9 +35,9 @@
                 <h4>Login</h4>
                 <hr>
                 <form action="/login" method="post">
-                    <input type="text" class="form-control" placeholder="Username" name="username">
+                    <input type="text" class="form-control" placeholder="Username" name="username" required>
                     <br>
-                    <input type="password" class="form-control" placeholder="Password" name="password">
+                    <input type="password" class="form-control" placeholder="Password" name="password" required>
                     <br>
                     <button type="submit" class="btn">Login</button>
                 </form>

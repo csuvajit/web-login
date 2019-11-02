@@ -6,3 +6,4 @@
 - [x] Delete Account
 - [x] Download Account Info
 - [x] Use Cookies
+- [x] Use Database (Cloud Firestore)

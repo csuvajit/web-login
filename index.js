@@ -46,10 +46,11 @@ const verifyLogin = (user, pass) => new Promise(resolve => {
 const deleteAccount = user => new Promise(resolve => {
 	const queried = db.collection('web_logins')
 		.where('username', '==', user)
+		.limit(1)
 		.get();
 
 	queried.then(snapshot => {
-		snapshot.forEach(doc => resolve(Object.assign(doc.data(), { id: doc.id })));
+		snapshot.forEach(doc => resolve(doc.ref.delete()));
 		if (!snapshot.size) return resolve(null);
 	});
 });
