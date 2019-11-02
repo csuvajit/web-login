@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="https://api.suvajit.me/favicon.ico">
+    <meta name="description" content="Simple Web Login System" />
+    <meta name="title" content="UwU" />
+    <link type="application/json+oembed" href="https://api.suvajit.me/embed/embed.json">
+    <link rel="shortcut icon" href="https://api.suvajit.me/img/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
@@ -24,8 +27,8 @@
                 <hr>
                 <form action="/signup" method="post">
                     <input type="text" id="signupusername" onkeyup="fix()" pattern="[A-Za-z0-9-]+"
-                        title="No special characters except '-'" class="form-control" minlength="4"
-                        maxlength="36" placeholder="Username" name="username" required>
+                        title="No special characters except '-'" class="form-control" minlength="4" maxlength="36"
+                        placeholder="Username" name="username" required>
                     <br>
                     <input type="password" class="form-control" placeholder="Password" name="password" required>
                     <br>
