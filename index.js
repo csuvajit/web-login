@@ -18,7 +18,8 @@ const checkExisting = user => new Promise(resolve => {
 
 	queried.then(snapshot => {
 		snapshot.forEach(doc => {
-			if (doc.data()) return resolve(Object.assign(doc.data(), { id: doc.id }));
+			const data = Object.assign(doc.data(), { id: doc.id });
+			return resolve(data);
 		});
 		if (!snapshot.size) return resolve(null);
 	});
@@ -28,7 +29,10 @@ const createAccount = (user, pass) => new Promise(resolve => {
 	const ref = db.collection('web_logins')
 		.add({ username: user, password: pass });
 
-	ref.then(doc => resolve(Object.assign({ username: user, password: pass }, { id: doc.id })));
+	ref.then(doc => {
+		const data = Object.assign({ username: user, password: pass }, { id: doc.id });
+		return resolve(data);
+	});
 });
 
 const verifyLogin = (user, pass) => new Promise(resolve => {
@@ -39,7 +43,10 @@ const verifyLogin = (user, pass) => new Promise(resolve => {
 		.get();
 
 	queried.then(snapshot => {
-		snapshot.forEach(doc => resolve(Object.assign(doc.data(), { id: doc.id })));
+		snapshot.forEach(doc => {
+			const data = Object.assign(doc.data(), { id: doc.id });
+			return resolve(data);
+		});
 		if (!snapshot.size) return resolve(null);
 	});
 });
@@ -51,7 +58,11 @@ const deleteAccount = user => new Promise(resolve => {
 		.get();
 
 	queried.then(snapshot => {
-		snapshot.forEach(doc => resolve(doc.ref.delete()));
+		snapshot.forEach(doc => {
+			const id = Object.assign({ id: doc.id }, {});
+			doc.ref.delete();
+			return resolve(id);
+		});
 		if (!snapshot.size) return resolve(null);
 	});
 });
