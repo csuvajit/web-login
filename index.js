@@ -35,7 +35,7 @@ const verifyLogin = (user, pass) => new Promise(resolve => {
 	const queried = db.collection('web_logins')
 		.where('username', '==', user)
 		.where('password', '==', pass)
-fix		.limit(1)
+		.limit(1)
 		.get();
 
 	queried.then(snapshot => {
