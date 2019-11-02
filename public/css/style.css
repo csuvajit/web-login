@@ -1,0 +1,148 @@
+body {
+    background-color: #23272A;
+}
+
+.centered {
+    margin: auto;
+    width: 50%;
+    padding: 70px 0;
+}
+
+h1, h4, h5 {
+    color: white;
+}
+
+textarea {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    resize: none;
+    border: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+textarea:focus, textarea:hover {
+    cursor: pointer;
+    text-decoration: none;
+    outline: none !important;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.gallery ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.gallery ul li {
+    display: inline-block;
+    margin: 0 .3em .3em 0;
+    padding: 0;
+}
+
+.gallery ul li a {
+    display: inline-block;
+    min-width: 100%;
+    max-width: 100%;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 1em;
+    background-color: #343a40;
+    border: 0px;
+    border-radius: 3px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: white;
+    font-size: 13px;
+    text-decoration: none;
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+
+.gallery ul li a:hover {
+    cursor: pointer;
+    background-color: #3498db;
+}
+
+.custom-select {
+    font-family: "Roboto", sans-serif;
+}
+
+.custom-select select {
+    display: none;
+}
+
+.select-selected {
+    background-color: DodgerBlue;
+}
+
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+}
+
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+}
+
+.select-items div, .select-selected {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+    user-select: none;
+}
+
+.select-items {
+    position: absolute;
+    background-color: DodgerBlue;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+.select-hide {
+    display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.credit, .pre {
+    color: white
+}
+
+.error {
+    font-size: 12px;
+    text-decoration: none;
+}
