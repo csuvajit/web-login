@@ -1,0 +1,26 @@
+{
+  "name": "web-login",
+  "version": "1.0.0",
+  "description": "Simple Web Login System",
+  "main": "index.js",
+  "author": "SUVAJIT (suvajit.me@gmail.com)",
+  "license": "MIT",
+  "scripts": {
+    "test": "eslint --ext .js --ignore-path .gitignore .",
+    "lint": "eslint --fix --ext .js --ignore-path .gitignore .",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "firestore-db": "^1.0.4"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-mars": "^1.0.4"
+  },
+  "keywords": []
+}
