@@ -131,6 +131,8 @@ app.get('/download', (req, res) => {
 app.get('/delete', async (req, res) => {
 	if (req.session.user) {
 		await deleteAccount(req.session.user.username);
+		res.clearCookie('connect.sid');
+		req.session.destroy();
 		return res.redirect('/');
 	}
 	return res.render('404.ejs', { msg: 'You have to be signed in to do that!' });
