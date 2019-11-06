@@ -99,7 +99,7 @@ app.post('/login', async (req, res) => {
 		req.session.user = user;
 		return res.redirect('/dashboard');
 	}
-	return res.render('404.ejs', { msg: 'You have to be signed in to do that!' });
+	return res.render('404.ejs', { msg: 'Please check your credentials and try again!' });
 });
 
 
