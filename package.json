@@ -1,26 +1,40 @@
 {
-  "name": "web-login",
-  "version": "1.0.0",
-  "description": "Simple Web Login System",
-  "main": "index.js",
-  "author": "SUVAJIT (suvajit.me@gmail.com)",
-  "license": "MIT",
-  "scripts": {
-    "test": "eslint --ext .js --ignore-path .gitignore .",
-    "lint": "eslint --fix --ext .js --ignore-path .gitignore .",
-    "start": "node index.js"
-  },
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "dotenv": "^8.2.0",
-    "ejs": "^2.7.1",
-    "express": "^4.17.1",
-    "express-session": "^1.17.0",
-    "firestore-db": "^1.0.4"
-  },
-  "devDependencies": {
-    "eslint": "^6.6.0",
-    "eslint-config-mars": "^1.0.4"
-  },
-  "keywords": []
+	"name": "web-login",
+	"version": "1.0.0",
+	"description": "Simple Web Login System",
+	"main": "index.js",
+	"author": {
+		"name": "SUVAJIT",
+		"email": "suvajit.me@gmail.com"
+	},
+	"license": "MIT",
+	"scripts": {
+		"test": "eslint --ext .js --ignore-path .gitignore .",
+		"lint": "eslint --fix --ext .js --ignore-path .gitignore .",
+		"start": "node index.js"
+	},
+	"dependencies": {
+		"body-parser": "^1.19.0",
+		"dotenv": "^8.2.0",
+		"ejs": "^3.1.5",
+		"express": "^4.17.1",
+		"express-session": "^1.17.1",
+		"firestore-db": "^1.0.5"
+	},
+	"devDependencies": {
+		"eslint": "^7.9.0",
+		"eslint-config-mars": "^1.0.7"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/csuvajit/web-login.git"
+	},
+	"keywords": [
+		"node.js",
+		"express",
+		"authentication",
+		"login-system",
+		"javascript",
+		"ejs"
+	]
 }
