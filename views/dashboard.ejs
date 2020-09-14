@@ -1,139 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="description" content="Simple Web Login System" />
+		<meta name="title" content="Web Login" />
+		<meta content="https://web.suvajit.me/img/icon.png" property="og:image" />
+		<meta name="theme-color" content="#23272A" />
+		<link type="application/json+oembed" href="https://web.suvajit.me/embed/embed.json" />
+		<link rel="shortcut icon" href="https://web.suvajit.me/img/favicon.ico" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+		/>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" />
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Simple Web Login System" />
-	<meta name="title" content="Web Login" />
-	<meta content="https://web.suvajit.me/img/icon.png" property="og:image" />
-    <meta name="theme-color" content="#23272A" />
-    <link type="application/json+oembed" href="https://web.suvajit.me/embed/embed.json">
-    <link rel="shortcut icon" href="https://web.suvajit.me/img/favicon.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
-    <link rel="stylesheet" href="https://web.suvajit.me/css/style.css">
-    <title>Dashboard</title>
-</head>
+		<link rel="stylesheet" href="/css/style.css" />
 
-<body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<title>Dashboard</title>
+	</head>
 
-    <div class="container centered">
-        <h5 style="display: inline-block;"><%= user.username.toUpperCase() %></h5><a id="downloadbtn" style="float: right;" href="/">Home</a>
-        <br>
-        <textarea style="width: 65%" rows="1"
-            onclick="this.focus();this.select();document.execCommand('copy');doFade();"
-            readonly><%= user.id %></textarea>
+	<body>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-        <select id="uploader" style="width: 30%; height: 44px; float: right; padding-top: 10px; padding-bottom: 10px;"
-            class="custom-select">
-            <option value="user" selected>User</option>
-            <option value="password">Password</option>
-        </select>
-        <br><br>
-        <h5 style="display: inline-block;" id="uploaderName">User</h5><a id="downloadbtn" style="float: right;"
-            href="/download?uploader=user">Download</a>
-        <textarea id="config" spellcheck="false" rows="5"
-            style="background-color: #282c34; width: 100%; color: white; font-family: 'Roboto', sans-serif;"
-            onclick="this.focus();this.select();document.execCommand('copy');doFade();"
-            readonly><%= JSON.stringify({ username: user.username, id: user.id, password: 'hidden' }, null, 4) %></textarea>
+		<div class="container centered">
+			<h5 style="display: inline-block"><%= user.username.toUpperCase() %></h5>
+			<a id="downloadbtn" style="float: right" href="/">Home</a>
+			<br />
+			<textarea
+				style="width: 65%"
+				rows="1"
+				onclick="this.focus();this.select();document.execCommand('copy');doFade();"
+				readonly
+			>
+            <%= user.id %>
+            </textarea>
 
-        <br><br>
-        <button type="button" class="btn btn-square btn-danger" data-toggle="modal"
-            data-target="#logoutordelete">Logout</button><button id="fader" style="float: right; display: none;"
-            type="button" class="btn btn-success"><i style="color: white" class="fa fa-check" aria-hidden="true"></i>
-            Copied</button>
-        <br><br>
+			<select
+				id="uploader"
+				style="width: 30%; height: 44px; float: right; padding-top: 10px; padding-bottom: 10px"
+				class="custom-select"
+			>
+				<option value="user" selected>User</option>
+				<option value="password">Password</option>
+			</select>
 
-        <div class="modal fade" id="logoutordelete" tabindex="-1" role="dialog" aria-labelledby="logoutordeletett"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 style="color: black" class="modal-title" id="logoutordeletett">Are you sure?</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="/logout"><button type="button" class="btn btn-danger">Logout</button></a>
-                        <button type="button" class="btn btn-warning" onclick="confirmDeletion()">Delete
-                            Account</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+			<br /><br />
 
-    <script>
-        const doFade = () => {
-            $(`#fader`).fadeIn("slow").delay(600).fadeOut("slow");
-        };
+			<h5 style="display: inline-block" id="uploaderName">User</h5>
+			<a id="downloadbtn" style="float: right" href="/download?uploader=user">Download</a>
+			<textarea
+				id="config"
+				spellcheck="false"
+				rows="5"
+				style="background-color: #282c34; width: 100%; color: white; font-family: 'Roboto', sans-serif"
+				onclick="this.focus();this.select();document.execCommand('copy');doFade();"
+				readonly
+			>
+			<%= JSON.stringify({ username: user.username, id: user.id, password: 'hidden' }, null, 4) %>
+			
+			</textarea>
 
-        const confirmDeletion = () => {
-            let answer = confirm('Do you really want to delete your account? There is no coming back!')
-            if (answer) {
-                window.location.href = '/delete'
-            } else {
-                location.reload()
-            }
-        }
+			<br /><br />
+			<button type="button" class="btn btn-square btn-danger" data-toggle="modal" data-target="#logoutordelete">
+				Logout</button
+			><button id="fader" style="float: right; display: none" type="button" class="btn btn-success">
+				<i style="color: white" class="fa fa-check" aria-hidden="true"></i> Copied
+			</button>
 
-        $(document).ready(function () {
-            $('[data-toggle="tooltip"]').tooltip({
-                animated: 'fade',
-                placement: 'top',
-                html: true
-            });
+			<br /><br />
 
-            $("#uploader").change(function () {
-                let text = undefined,
-                    uploaderName = undefined;
+			<div
+				class="modal fade"
+				id="logoutordelete"
+				tabindex="-1"
+				role="dialog"
+				aria-labelledby="logoutordeletett"
+				aria-hidden="true"
+			>
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 style="color: black" class="modal-title" id="logoutordeletett">Are you sure?</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-footer">
+							<a href="/logout"><button type="button" class="btn btn-danger">Logout</button></a>
+							<button type="button" class="btn btn-warning" onclick="confirmDeletion()">
+								Delete Account
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-                switch (this.value) {
-                    case "user":
-                        text = [
-                            JSON.stringify({
-                                username: '<%= user.username %>',
-                                id: '<%= user.id %>',
-                                password: 'hidden'
-                            }, null, 4)
-                        ].join('');
-                        uploaderName = "User";
-                        break;
-                    case "password":
-                        text = [
-                            JSON.stringify({
-                                username: '<%= user.username %>',
-                                id: '<%= user.id %>',
-                                password: '<%= user.password %>'
-                            }, null, 4)
-                        ].join('\n');
-                        uploaderName = "Password";
-                        break;
-                    default:
-                        break;
-                }
-                if (text) {
-                    $("#config").val(text);
-                    $("#uploaderName").text(`${uploaderName}`)
-                    $("#downloadbtn").attr("href", `/download?uploader=${uploaderName.toLowerCase()}`)
-                }
-            });
-        });
-    </script>
+		<script>
+			const doFade = () => {
+				$(`#fader`).fadeIn('slow').delay(600).fadeOut('slow');
+			};
 
-    <div id="footer">
-        <div class="container text-center">
-            <p class="text-muted credit">All Rights Reserved</p>
-            <h5>© SUVAJIT</h5>
-        </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
-</body>
+			const confirmDeletion = () => {
+				let answer = confirm('Do you really want to delete your account? There is no coming back!');
+				if (answer) {
+					window.location.href = '/delete';
+				} else {
+					location.reload();
+				}
+			};
 
+			$(document).ready(function () {
+				$('[data-toggle="tooltip"]').tooltip({
+					animated: 'fade',
+					placement: 'top',
+					html: true
+				});
+
+				$('#uploader').change(function () {
+					let text = undefined,
+						uploaderName = undefined;
+
+					switch (this.value) {
+						case 'user':
+							text = [
+								JSON.stringify(
+									{
+										username: '<%= user.username %>',
+										id: '<%= user.id %>',
+										password: 'hidden'
+									},
+									null,
+									4
+								)
+							].join('');
+							uploaderName = 'User';
+							break;
+						case 'password':
+							text = [
+								JSON.stringify(
+									{
+										username: '<%= user.username %>',
+										id: '<%= user.id %>',
+										password: '<%= user.password %>'
+									},
+									null,
+									4
+								)
+							].join('\n');
+							uploaderName = 'Password';
+							break;
+						default:
+							break;
+					}
+					if (text) {
+						$('#config').val(text);
+						$('#uploaderName').text(`${uploaderName}`);
+						$('#downloadbtn').attr('href', `/download?uploader=${uploaderName.toLowerCase()}`);
+					}
+				});
+			});
+		</script>
+
+		<div id="footer">
+			<div class="container text-center">
+				<p class="text-muted credit">All Rights Reserved</p>
+				<h5>© SUVAJIT</h5>
+			</div>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	</body>
 </html>
