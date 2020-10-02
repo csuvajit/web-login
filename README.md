@@ -24,4 +24,4 @@ To get started, clone the repository to your computer using:
 + You need to  get the Google Firestore database credentials from your [Firebase console](https://console.firebase.google.com/).
 + Follow the `.env.example` file and make your `.env` file like that and place it at the root of the project directory.
 
-> **Note** Your `express-secret` can be anything you want
+> **Note** Your `session-secret` can be anything you want
